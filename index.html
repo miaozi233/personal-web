@@ -15,9 +15,6 @@
     <script type="text/javascript" charset="utf8"
     src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
     <style>
-        body,html{
-            height: 100%;
-        }
         #banner{
             height: 8rem;
             background-color: rgb(164, 182, 222);
@@ -35,10 +32,8 @@
         }
         #content{
             float: left;
-            overflow: hidden;
             padding: 10px;
-            width: 80%;
-            height: 100%;
+            width: auto;
         }
         #sidebar li{
             list-style: none;
@@ -48,18 +43,13 @@
             padding: 5px;
         }
         #map{
-            width: 50%;
-            height: 50%;
+            height:30rem;
+            width: 30rem;
             border: 1px solid #ccc;
         }
         .info{
             display: none;
 
-        }
-        #floodriskmap{
-            width: 100%;
-            height: 100%;
-            border: 1px solid #ccc;
         }
     </style>
 </head>
@@ -74,56 +64,9 @@
             <li>边栏4（不可用）</li>
     </div>
     <div id="content">
-        <div id = "map">
-            <div class="info">
-                <h4 id='status'></h4><hr>
-                <p id='result'></p><hr>
-                <p >由于众多浏览器已不再支持非安全域的定位请求，为保位成功率和精度，请升级您的站点到HTTPS。</p>
-            </div>
-            <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=您申请的key值"></script>
-            <script type="text/javascript">
-                var map = new AMap.Map('map', {
-                    resizeEnable: true
-                });
-                AMap.plugin('AMap.Geolocation', function() {
-                    var geolocation = new AMap.Geolocation({
-                        enableHighAccuracy: true,//是否使用高精度定位，默认:true
-                        timeout: 10000,          //超过10秒后停止定位，默认：5s
-                        buttonPosition:'RB',    //定位按钮的停靠位置
-                        buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
-                        zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点
-            
-                    });
-                    map.addControl(geolocation);
-                    geolocation.getCurrentPosition(function(status,result){
-                        if(status=='complete'){
-                            onComplete(result)
-                        }else{
-                            onError(result)
-                        }
-                    });
-                });
-                //解析定位结果
-                function onComplete(data) {
-                    document.getElementById('status').innerHTML='定位成功'
-                    var str = [];
-                    str.push('定位结果：' + data.position);
-                    str.push('定位类别：' + data.location_type);
-                    if(data.accuracy){
-                         str.push('精度：' + data.accuracy + ' 米');
-                    }//如为IP精确定位结果则没有精度信息
-                    str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
-                    document.getElementById('result').innerHTML = str.join('<br>');
-                }
-                //解析定位错误信息
-                function onError(data) {
-                    document.getElementById('status').innerHTML='定位失败'
-                    document.getElementById('result').innerHTML = '失败原因排查信息:'+data.message;
-                }
-            </script>
-        </div>
-        
-            <img src="images/water volume.png" style="width: 50%;height: 50%;">
+        <iframe src="subpages/测试.html" style="width: 500px;height: 500px;">
+        </iframe>
+        <img src="images/floodriskmap.jpg" style="width: 100%;">
     </div>
 </body>
 </html>
