@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产汇流表格</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css"
+    href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8"
+    src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <table id="table_id_example" class="display">
+        <thead>
+            <tr>
+                <th>径流量类型</th>
+                <th>所需参数-径流表面</th>
+                <th>所需参数-子流域/集水区</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Fixed</td><td>固定径流系数</td><td></td></tr>
+            <tr><td>Wallingfrd</td><td>最小径流量；最大径流量；Wallingford径流量模型分配权重系数</td><td>WRAP soil type</td></tr>
+            <tr><td>NewUK</td><td>新英国深度</td><td></td></tr>
+            <tr><td>SCS</td><td>SCS 深度；初损类型</td><td></td></tr>
+            <tr><td>Horton</td><td>初期入渗率；极限入渗；衰减因子</td><td></td></tr>
+            <tr><td>GreenAmpt</td><td>GreenAtmp吸力；GreenAtmp传导率；GreenAmpt饱和差</td><td></td></tr>
+            <tr><td>Constlnf</td><td>入渗损失系数</td><td></td></tr>
+            <tr><td>CN</td><td>初损类型</td><td>curve number</td></tr>
+            <tr><td>Horner</td><td>；Horner 恢复时间</td><td></td></tr>
+            <tr><td>ReFH</td><td></td><td>ReHF/ReFH2</td></tr>
+            <tr><td>HortonSWMM</td><td>初期入渗率；Horton干燥时间；Horton最大入渗容量</td><td></td></tr>
+            <tr><td>SRM</td><td></td><td>基流计算；土壤湿亏量SRM径流系数；SRM径流系数；SRM线性时间常数1；SRMSRM线性时间常数2；SRM延时</td></tr>
+            <tr><td>PDM土壤含水概率</td><td></td><td>PDM描述</td></tr>
+            <tr><td>DefConloss</td><td>最大亏损；入渗损失系数；初期亏损量&蒸发（降雨事件中定义）</td><td></td></tr>
+            <tr><td>UKWIRPaved</td><td>有效不透水IF；降雨衰减系数；指数</td><td></td></tr>
+            <tr><td></td><td>；蓄滞水深；</td><td></td></tr>
+            <tr><td>UKWIRPerv</td><td>针对NAPI的湿度衰减率；UKWIR模型公式中透水表面的指数Cr；UKWIR模型的土壤蓄水深度；最小NAPI</td><td>标准径流百分比；SPR计算；</td></tr>
+            <tr><td>f1-Rsa</td><td>最小径流量；最大径流量；饱和降雨；先前降雨深度（降雨事件子集事件属性）</td><td></td></tr>
+            <tr><td>DWA</td><td>最小径流量；最大径流量；饱和降；初期损失值；洼蓄损失；初期入渗率；极限入渗；衰减因子；恢复系数</td><td>坡度</td></tr>
+
+        </tbody>
+    </table>
+    <script>
+    $(document).ready( function () {
+        $('#table_id_example').DataTable();
+    } );
+   </script>
+</body>
+</html>
