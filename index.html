@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" type="text/css"
-    href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
-    <!-- jQuery -->
-    <script type="text/javascript" charset="utf8" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="importmap">
+      {
+        "imports": {
+          "@material/web/": "https://esm.run/@material/web/"
+          
+        }
+      }
     </script>
-    <!-- DataTables -->
-    <script type="text/javascript" charset="utf8"
-    src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+    <script type="module">
+      import '@material/web/all.js';
+      import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+  
+      document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+
+    <link href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
     <style>
         body,html{
             height: 100%;
@@ -27,25 +35,12 @@
             color: #fff;
             z-index: 999;
         }
-        #sidebar{
-            width: 10%;
-            height: 100%;
-            background-color: rgb(239, 239, 239);
-            float: left;
-        }
         #content{
-            padding: 10px;
             width: 100%;
             height: 100%;
-            float: block;
         }
-        #sidebar li{
-            list-style: none;
-            color: #4a4a4a;
-            text-align: center;
-            line-height: 50px;
-            padding: 5px;
-            font-size: 100%;
+        #guide{
+            z-index: 999;
         }
         .info{
             display: none;
@@ -56,15 +51,88 @@
     <div id="banner">
         Rain
     </div>
-    <div id = "sidebar">
-        <li><a href="subpages/table.html">表格（可用）</a></li>
-        <li>边栏2（不可用）</li>
-        <li>边栏3（不可用）</li>
-        <li>边栏4（不可用）</li>
+    
+<div id="guide">
+    <div class="figure-wrapper">
+        <figure
+          class="styled-example menu"
+          aria-label="A green, filled button with the text Themed menu. Interact with the button to open the green themed menu with 0 border-radius."
+          style="padding-block: 16px"
+        >
+          <style>
+            .styled-example {
+              background-color: #f4fbfa;
+            }
+            .styled-example md-filled-button {
+              --md-sys-color-primary: #006a6a;
+              --md-sys-color-on-primary: #ffffff;
+            }
+            .styled-example.menu md-menu {
+              --md-menu-container-color: #f4fbfa;
+              --md-menu-container-shape: 0px;
+              --md-sys-color-on-surface: #161d1d;
+              --md-sys-typescale-body-large-font: system-ui;
+            }
+            .styled-example.menu md-menu-item {
+              border-radius: 28px;
+            }
+            .styled-example.menu md-menu-item::part(focus-ring) {
+              border-radius: 28px;
+            }
+          </style>
+          <span style="position: relative">
+            <md-filled-button >主页</md-filled-button>
+            <md-filled-button id="theming-anchor">导航</md-filled-button>
+            <md-menu id="theming-menu" anchor="theming-anchor">
+              <md-menu-item>
+                <div slot="headline"><a href="subpages/table.html">产流表格</a></div>
+              </md-menu-item>
+              <md-menu-item>
+                <div slot="headline">汇流表格</div>
+              </md-menu-item>
+              <md-menu-item>
+                <div slot="headline">Cucumber</div>
+              </md-menu-item>
+              <md-menu-item>
+                <div slot="headline">Cucumber</div>
+              </md-menu-item>
+            </md-menu>
+                    <script type="module">
+            const anchorEl = document.body.querySelector("#theming-anchor");
+            const menuEl = document.body.querySelector("#theming-menu");
+            anchorEl.addEventListener("click", () => {
+              menuEl.show();
+            });
+          </script>
+        </span>
+        <span style="position: relative">
+            <md-filled-button id="theming-anchor1">常用网站</md-filled-button>
+            <md-menu id="theming-menu1" anchor="theming-anchor1">
+              <md-menu-item>
+                <div slot="headline">中国气象</div>
+              </md-menu-item>
+              <md-menu-item>
+                <div slot="headline">InfoWorks ICM</div>
+              </md-menu-item>
+              <md-menu-item>
+                <div slot="headline">SWMM</div>
+              </md-menu-item>
+            </md-menu>
+            <script type="module">
+            const anchorEl = document.body.querySelector("#theming-anchor1");
+            const menuEl = document.body.querySelector("#theming-menu1");
+            anchorEl.addEventListener("click", () => {
+              menuEl.show();
+            });
+          </script>
+        </span>
+        </figure>
     </div>
+</div>
     <div id="content">
+        
         <iframe src="subpages/测试.html" style="width: 80%;height: 500px;float: left;" ></iframe>
-        <img src="images/floodriskmap.jpg" style="width: 80%;float: left;">
+        <img src="images/floodriskmap.jpg"  class="img-fluid">
     </div>
 </body>
 </html>
